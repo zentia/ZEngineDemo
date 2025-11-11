@@ -1,0 +1,40 @@
+# ZEngine Project
+# Saved files (logs, configs, etc.)
+Saved/
+
+# Build artifacts
+Binaries/
+Intermediate/
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Compiled files
+*.o
+*.a
+*.so
+*.dylib
+
