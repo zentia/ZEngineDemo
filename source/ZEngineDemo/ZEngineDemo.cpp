@@ -6,6 +6,7 @@
 namespace ZEngineDemo
 {
     // Global module instance
+    // This is managed by InitializeLibrary/UninitializeLibrary to avoid static variables
     static std::shared_ptr<ZEngineDemoModule> g_module_instance = nullptr;
 
     ZEngineDemoModule::ZEngineDemoModule()
@@ -41,20 +42,54 @@ namespace ZEngineDemo
     }
 } // namespace ZEngineDemo
 
-// Auto-register the module when the library is loaded
-// This uses a static initializer to register the module before main()
-namespace
+// Export functions for DLL initialization/uninitialization
+// Using explicit InitializeLibrary/UninitializeLibrary functions instead of static variables
+// avoids issues with DLL unloading, as static destructors can prevent proper DLL unload
+extern "C"
 {
-    struct ZEngineDemoModuleRegistrar
+    /**
+     * @brief Initialize the library and register the module
+     * This function should be called after the DLL is loaded
+     * @return true if initialization succeeded, false otherwise
+     */
+    bool InitializeLibrary()
     {
-        ZEngineDemoModuleRegistrar()
+        if (ZEngineDemo::g_module_instance != nullptr)
         {
-            // Create and register the module instance
-            ZEngineDemo::g_module_instance = std::make_shared<ZEngineDemo::ZEngineDemoModule>();
-            Z::ModuleManager::getInstance().registerModule(ZEngineDemo::g_module_instance);
+            LOG_WARNING(ZEngine, "ZEngineDemo module already initialized");
+            return false;
         }
-    };
+        
+        // Create and register the module instance
+        ZEngineDemo::g_module_instance = std::make_shared<ZEngineDemo::ZEngineDemoModule>();
+        Z::ModuleManager::getInstance().registerModule(ZEngineDemo::g_module_instance);
+        
+        LOG_INFO(ZEngine, "Successfully initialized ZEngineDemo library");
+        return true;
+    }
     
-    // Static instance ensures registration happens at library load time
-    static ZEngineDemoModuleRegistrar g_ZEngineDemo_registrar;
+    /**
+     * @brief Uninitialize the library and unregister the module
+     * This function should be called before the DLL is unloaded
+     */
+    void UninitializeLibrary()
+    {
+        if (ZEngineDemo::g_module_instance == nullptr)
+        {
+            LOG_WARNING(ZEngine, "ZEngineDemo module not initialized, skipping uninitialization");
+            return;
+        }
+        
+        // Shutdown the module if it's still initialized
+        if (ZEngineDemo::g_module_instance)
+        {
+            ZEngineDemo::g_module_instance->shutdown();
+        }
+        
+        // Clear the module instance
+        // Note: The module will be removed from ModuleManager when the shared_ptr is destroyed
+        ZEngineDemo::g_module_instance.reset();
+        
+        LOG_INFO(ZEngine, "Successfully uninitialized ZEngineDemo library");
+    }
 }
