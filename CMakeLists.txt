@@ -14,6 +14,9 @@ if(NOT ZENGINE_ROOT)
     message(FATAL_ERROR "ZENGINE_ROOT environment variable is not set. Please set it to the engine root directory.")
 endif()
 
+# Set project root directory
+set(PROJECT_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
 # Configure ZEngine unified output directory
 # This ensures all projects use the same engine build outputs
 # Set this to the same value as ZENGINE_ROOT/bin to share builds
@@ -33,4 +36,13 @@ else()
 endif()
 
 # Add project source directory
+# This will set PROJECT_HEADER_FILES variable needed for reflection code generation
 add_subdirectory(source)
+
+# Configure reflection code generation for project
+# This enables serialization support for classes marked with REFLECTION_TYPE
+# Note: PROJECT_HEADER_FILES must be set by source/CMakeLists.txt before including this
+set(PROJECT_PRECOMPILE_TARGET "ZEngineDemoPreCompile")
+include(${CMAKE_CURRENT_SOURCE_DIR}/precompile.cmake)
+add_dependencies(ZEngineDemo ${PROJECT_PRECOMPILE_TARGET})
+add_dependencies(${PROJECT_PRECOMPILE_TARGET} ZParser)
