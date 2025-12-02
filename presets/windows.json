@@ -33,15 +33,13 @@
             "displayName": "Windows Ninja",
             "inherits": "windows_except_vscode",
             "generator": "Ninja Multi-Config",
-            "toolchainFile": "${sourceDir}/toolchain/clang-cl.cmake",
-            "binaryDir": "${sourceDir}/build/build_win_ninja"
+            "binaryDir": "${sourceDir}/build"
         },
         {
             "name": "windows_vscode",
             "displayName": "Windows VSCode",
             "generator": "Ninja",
             "hidden": true,
-            "toolchainFile": "${sourceDir}/toolchain/clang-cl.cmake",
             "binaryDir": "${sourceDir}/build/build_vscode/${presetName}",
             "cacheVariables": {
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -61,14 +59,6 @@
             }
         },
         {
-            "name": "windows_vscode_profile",
-            "displayName": "Windows VSCode Profile",
-            "inherits": "windows_vscode",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Profile"
-            }
-        },
-        {
             "name": "windows_vscode_release",
             "displayName": "Windows VSCode Release",
             "inherits": "windows_vscode",
@@ -79,25 +69,12 @@
     ],
     "buildPresets": [
         {
-            "name": "windows_ci",
-            "displayName": "Windows CI",
-            "configurePreset": "windows_ninja",
-            "configuration": "RelWithDebInfo",
-            "targets": [
-                "ZEditor"
-            ],
-            "nativeToolOptions": [
-                "-j",
-                "16"
-            ]
-        },
-        {
-            "name": "windows_editor",
-            "displayName": "Windows Editor",
+            "name": "windows_debug",
+            "displayName": "Windows Debug",
             "configurePreset": "windows_visual_studio",
-            "configuration": "RelWithDebInfo",
+            "configuration": "Debug",
             "targets": [
-                "ZEditor"
+                "ZEngineDemo"
             ],
             "nativeToolOptions": [
                 "-j",
@@ -105,12 +82,12 @@
             ]
         },
         {
-            "name": "windows_pc",
-            "displayName": "Windows PC",
+            "name": "windows_release",
+            "displayName": "Windows Release",
             "configurePreset": "windows_visual_studio",
-            "configuration": "RelWithDebInfo",
+            "configuration": "Release",
             "targets": [
-                "ZEditor"
+                "ZEngineDemo"
             ],
             "nativeToolOptions": [
                 "-j",

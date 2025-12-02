@@ -1,6 +1,7 @@
 #include "ZEngineDemo.h"
 #include "runtime/function/module/module_manager.h"
 #include "runtime/core/base/macro.h"
+#include "runtime/function/global/system_adapters.h"
 #include <memory>
 
 namespace ZEngineDemo
@@ -62,7 +63,7 @@ extern "C"
         
         // Create and register the module instance
         ZEngineDemo::g_module_instance = std::make_shared<ZEngineDemo::ZEngineDemoModule>();
-        Z::ModuleManager::getInstance().registerModule(ZEngineDemo::g_module_instance);
+        GET_SYSTEM(ModuleManager)->registerModule(ZEngineDemo::g_module_instance);
         
         LOG_INFO(ZEngine, "Successfully initialized ZEngineDemo library");
         return true;
@@ -93,3 +94,4 @@ extern "C"
         LOG_INFO(ZEngine, "Successfully uninitialized ZEngineDemo library");
     }
 }
+

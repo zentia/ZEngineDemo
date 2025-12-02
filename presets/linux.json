@@ -84,22 +84,22 @@
     ],
     "buildPresets": [
         {
-            "name": "linux_editor_debug",
-            "displayName": "Linux Editor Debug",
+            "name": "linux_debug",
+            "displayName": "Linux Debug",
             "configurePreset": "linux_ninja_debug",
             "targets": [
-                "ZEditor"
+                "ZEngineDemo"
             ],
             "nativeToolOptions": [
                 "-j"
             ]
         },
         {
-            "name": "linux_editor_release",
-            "displayName": "Linux Editor Release",
+            "name": "linux_release",
+            "displayName": "Linux Release",
             "configurePreset": "linux_ninja_release",
             "targets": [
-                "ZEditor"
+                "ZEngineDemo"
             ],
             "nativeToolOptions": [
                 "-j"

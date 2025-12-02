@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-ZEngine Build System
-A unified build tool layer for ZEngine that provides a consistent interface
+ZEngineDemo Build System
+A unified build tool layer for ZEngineDemo that provides a consistent interface
 across all platforms, similar to Unreal's UAT but lighter weight.
 """
 
@@ -139,7 +139,7 @@ class BuildSystem:
     def configure(self, config: str = "debug", generator: Optional[str] = None, 
                   preset: Optional[str] = None, extra_args: Optional[List[str]] = None) -> bool:
         """Configure the build system"""
-        print_header(f"Configuring ZEngine ({config})")
+        print_header(f"Configuring ZEngineDemo ({config})")
         
         # Use preset if available
         if preset:
@@ -167,7 +167,7 @@ class BuildSystem:
     def build(self, config: str = "debug", target: Optional[str] = None,
               jobs: Optional[int] = None, preset: Optional[str] = None) -> bool:
         """Build the project"""
-        print_header(f"Building ZEngine ({config})")
+        print_header(f"Building ZEngineDemo ({config})")
         
         # Determine build directory
         build_dir = self.build_dir
@@ -237,7 +237,7 @@ class BuildSystem:
     
     def install(self, config: str = "release") -> bool:
         """Install the built artifacts"""
-        print_header("Installing ZEngine")
+        print_header("Installing ZEngineDemo")
         
         cmd = ["cmake", "--install", str(self.build_dir)]
         
@@ -289,7 +289,7 @@ class BuildSystem:
     
     def show_info(self):
         """Show build system information"""
-        print_header("ZEngine Build System Information")
+        print_header("ZEngineDemo Build System Information")
         print_info(f"Root directory: {self.root_dir}")
         print_info(f"Build directory: {self.build_dir}")
         print_info(f"Platform: {self.system}")
@@ -303,14 +303,14 @@ class BuildSystem:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ZEngine Build System - Unified build tool for all platforms",
+        description="ZEngineDemo Build System - Unified build tool for all platforms",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   zbuild.py configure                  # Configure with default settings
   zbuild.py configure --config release # Configure for release
   zbuild.py build                      # Build the project
-  zbuild.py build --target ZEditor     # Build specific target
+  zbuild.py build --target ZEngineDemo     # Build specific target
   zbuild.py build --jobs 8             # Build with 8 parallel jobs
   zbuild.py clean                      # Clean build directory
   zbuild.py test                       # Run tests
@@ -327,7 +327,7 @@ Examples:
     configure_parser.add_argument('--generator', choices=['ninja', 'make', 'xcode', 'vs'],
                                  help='CMake generator to use')
     configure_parser.add_argument('--preset', help='Use specific CMake preset')
-    configure_parser.add_argument('--extra-args', nargs='*', help='Extra CMake arguments')
+    configure_parser.add_argument('--extra-args', nargs=argparse.REMAINDER, help='Extra CMake arguments')
     
     # Build command
     build_parser = subparsers.add_parser('build', help='Build the project')

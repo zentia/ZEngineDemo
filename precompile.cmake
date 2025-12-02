@@ -53,3 +53,4 @@ add_custom_target(${PROJECT_PRECOMPILE_TARGET} ALL
     DEPENDS ${PRECOMPILE_STAMP}
     COMMENT "Meta parser code generation target for ZEngineDemo"
 )
+
