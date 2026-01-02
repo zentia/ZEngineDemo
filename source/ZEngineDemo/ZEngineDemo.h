@@ -9,7 +9,7 @@ namespace ZEngineDemo
      * This is your game module entry point
      * The module will be automatically registered and initialized by the engine
      */
-    class ZEngineDemoModule : public Z::IGameModule
+    class ZEngineDemoModule : public IGameModule
     {
     public:
         ZEngineDemoModule();

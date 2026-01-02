@@ -1,7 +1,7 @@
 #include "ZEngineDemo.h"
 #include "runtime/function/module/module_manager.h"
 #include "runtime/core/base/macro.h"
-#include "runtime/core/base/system_registry.h"
+#include "runtime/core/base/SystemRegistry.h"
 #include <memory>
 
 namespace ZEngineDemo

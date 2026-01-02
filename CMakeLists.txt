@@ -174,11 +174,3 @@ endif()
 # This will set PROJECT_HEADER_FILES variable needed for reflection code generation
 add_subdirectory(source)
 
-# Configure reflection code generation for project
-# This enables serialization support for classes marked with REFLECTION_TYPE
-# Note: PROJECT_HEADER_FILES must be set by source/CMakeLists.txt before including this
-set(PROJECT_PRECOMPILE_TARGET "ZEngineDemoPreCompile")
-include(${CMAKE_CURRENT_SOURCE_DIR}/precompile.cmake)
-add_dependencies(ZEngineDemo ${PROJECT_PRECOMPILE_TARGET})
-add_dependencies(${PROJECT_PRECOMPILE_TARGET} ZParser)
-
