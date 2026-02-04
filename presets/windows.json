@@ -26,7 +26,10 @@
             "inherits": "windows_except_vscode",
             "generator": "Visual Studio 17 2022",
             "toolset": "ClangCL",
-            "binaryDir": "${sourceDir}/build"
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel"
+            }
         },
         {
             "name": "windows_ninja",
@@ -93,7 +96,19 @@
                 "-j",
                 "0"
             ]
+        },
+        {
+            "name": "windows_relwithdebinfo",
+            "displayName": "Windows RelWithDebInfo",
+            "configurePreset": "windows_visual_studio",
+            "configuration": "RelWithDebInfo",
+            "targets": [
+                "ZEngineDemo"
+            ],
+            "nativeToolOptions": [
+                "-j",
+                "0"
+            ]
         }
     ]
 }
-
