@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "entries": [
+        {
+            "guid": "ae57a4b96288e342f36d848c8f235494",
+            "path": "scripts/hello.ts",
+            "class": "Hello",
+            "mtime": -5023419360614342016,
+            "content_hash": "936a15891f1d1ee0",
+            "compiled": "intermediate/scripts/hello.js"
+        },
+        {
+            "guid": "33a35efbf13a60600af6db3e5bf462f0",
+            "path": "scripts/p4smoke.ts",
+            "class": "",
+            "mtime": -5023422682105524416,
+            "content_hash": "dfbc08f4402d3c8f",
+            "compiled": "intermediate/scripts/p4smoke.js"
+        },
+        {
+            "guid": "538f53acd25e064139dc8cdbf64523f4",
+            "path": "scripts/p7smoke.ts",
+            "class": "P7Smoke",
+            "mtime": -5023374513924728916,
+            "content_hash": "5e6647d325068c97",
+            "compiled": "intermediate/scripts/p7smoke.js"
+        },
+        {
+            "guid": "9bfffb5c8d9580ab3660015630614546",
+            "path": "scripts/util.ts",
+            "class": "",
+            "mtime": -5023426145354982216,
+            "content_hash": "4de699ee7c94d8c9",
+            "compiled": "intermediate/scripts/util.js"
+        }
+    ]
+}

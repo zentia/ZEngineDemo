@@ -1,0 +1,9 @@
+{
+  "name": "zengine-project-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript sources for a ZEngine project. Compiled by the engine via tsc --watch.",
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
