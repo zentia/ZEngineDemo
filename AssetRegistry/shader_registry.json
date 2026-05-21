@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "entries": [
+        {
+            "guid": "9e4302f464326ef5cecd6d8f2ffdf67e",
+            "path": "shaders/keywordsmoke.shader",
+            "name": "Custom/KeywordSmoke",
+            "zasset": "Assets/_Generated/Shaders/keywordsmoke.shader.zasset",
+            "mtime": -5022926160644705416,
+            "content_hash": "316989373789fb4c"
+        }
+    ]
+}
