@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "entries": [
+        {
+            "zasset": "i:/zenginedemo/assets/-957665316.zasset",
+            "settings": {
+                "default": {
+                    "overridden": false,
+                    "format": "RGBA8",
+                    "generate_mipmaps": true,
+                    "sRGB": true,
+                    "max_size": 4096,
+                    "compression_quality": 50
+                },
+                "overrides": {},
+                "generate_guid": true,
+                "custom_guid": ""
+            }
+        }
+    ]
+}

@@ -1,4 +1,15 @@
 {
     "version": 1,
-    "entries": []
+    "entries": [
+        {
+            "zasset": "i:/zenginedemo/assets/-957665316.zasset",
+            "source": "D:/-957665316.png",
+            "mtime_ns": -5022849648268955916
+        },
+        {
+            "zasset": "i:/zenginedemo/assets/m_os_ac01_cycas_01.zasset",
+            "source": "D:/OSGame/Client_proj/Project/Assets/Art_Resources/SceneModels/ART_AC_Scene_Plant_ShowRoom/Mesh/M_OS_AC01_Cycas_01.fbx",
+            "mtime_ns": -5081072291141890116
+        }
+    ]
 }
